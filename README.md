@@ -5,15 +5,24 @@ Project Pancakes is an online game that will not only help you improve your typi
 ___
 
 ## MVPs
-* Game Logic 
+* Board (Day 1)
+  -User will be able to see a background with a playable character and background animation
+
+* Game Logic (Day 2 & 3)
   - User will be able to tap on key to move player in order to catch falling pancake.
 
-* HighScore
+* HighScore (Day 4)
   - User will be able to keep highscore in order to record their progress.
 
-* Animation
+* Animation (Day 5)
   - User will be able to see pancakes fall frame by frame, and player move side to side. 
 
+___
+
+## Technologies
+
+* Canvas
+  - Canvas is an HTML element that will allow me to draw grapics on the page and will assist in obtaining user input for eventListeners
 ___
 
 ## Wireframe
