@@ -6,7 +6,7 @@ ___
 
 ## MVPs
 * Board (Day 1)
-  -User will be able to see a background with a playable character and background animation
+  - User will be able to see a background with a playable character and background animation
 
 * Game Logic (Day 2 & 3)
   - User will be able to tap on key to move player in order to catch falling pancake.
@@ -27,4 +27,4 @@ ___
 
 ## Wireframe
 
-![Concept Image](./img/Wireframe.png)
+![Concept Image](src/images/Wireframe.png)
