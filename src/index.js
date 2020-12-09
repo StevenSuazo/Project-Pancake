@@ -1,55 +1,47 @@
-// import "./styles/index.scss";
-  let canvas = document.getElementById("canvas");
-  let ctx = canvas.getContext("2d");
-  canvas.width = 1000; 
-  canvas.height = 600;
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+canvas.width = 1000; 
+canvas.height = 600;
 
-// document.addEventListener("DOMContentLoaded", () => {
+class Game {
+  constructor() {
+    this.pancakesOnBoard = [];
+    this.playerOnBoard = [];
+    this.animate = this.animate.bind(this);
 
-//   function player() {
-//     const player = new Image();
-//     player.src = "/src/images/Player.png"
+    this.addPancakes();
+    this.animate();
 
-//     player.onload = () => {
-//       ctx.drawImage(player, 200, 375, player.width / 11.9, player.height / 11.9)
-//     }
-//   };
+  }
+
+  add(obj) {
+    if (obj instanceof Pancakes) {
+      this.pancakesOnBoard.push(obj);
+    }
+  }
   
-//   function chef() {
-//     const chef = new Image();
-//     chef.src = "/src/images/chef.png"
+  addPancakes() {
+    for (i = 0; i < 7; i++) {
+      this.add(new Pancakes)
+    }
+  }
 
-//     chef.onload = () => {
-//       ctx.drawImage(chef, 415, 116, chef.width / 2, chef.height / 2)
-//     }
-    
-//   };
-  
-//   function pancake() {
-//     const pancake = new Image();
-//     pancake.src = "/src/images/pancake-A.png"
+  animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    drawSprite(playerSprite, 0, 0, player.width, player.height, player.x, player.y,
+      player.width, player.height);
 
-//     pancake.onload = () => {
-//       ctx.drawImage(pancake, 330, 300, pancake.width / 40, pancake.height / 40)
-//     }
-//   };
+    this.pancakesOnBoard.forEach((pancake) => {
+      pancake.makePancake();
+      pancake.movePancake();
+    })
+    // movePlayer();
+    requestAnimationFrame(this.animate);
+  }
 
-//   function animate() {
-    
-//     // change position
-    
-    
-//   }
-  
-//   player()
-//   chef()
-//   pancake()
+}
 
-// })
-
-const keys = [];
-const columns = [125, 250, 375, 500, 625, 750, 875];
-
+// --------- Player ---------------
 const player = {
   x: 200,
   y: 410,
@@ -60,16 +52,25 @@ const player = {
   speed: 9,
   moving: false
 }
-const pancake = {
-  x: columns[Math.floor(Math.random() * columns.length)],
-  y: 0,
-  width: 200,
-  height: 200,
-  frameX: 0,
-  frameY: 0,
-  speed: 2,
-  moving: false
+
+const playerSprite = new Image();
+playerSprite.src = "/src/images/Player.png"
+
+function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
+  ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
 }
+
+function movePlayer() {
+  if (keys[39] && player.x < 800) {
+    player.x += player.speed;
+  }
+  if (keys[37] && player.x > 0) {
+    player.x -= player.speed;
+  }
+}
+
+// --------- Pancakes ---------------
+const columns = [125, 250, 375, 500, 625, 750, 875];
 
 let allPancakes = [
   "/src/images/pancake-A.png",
@@ -97,74 +98,40 @@ let allPancakes = [
   "/src/images/pancake-W.png",
   "/src/images/pancake-X.png",
   "/src/images/pancake-Y.png",
-  "/src/images/pancake-Z.png",
+  "/src/images/pancake-Z.png"
 ];
 
-let startingPancakes = true;
-
-// --------- Player ---------------
-const playerSprite = new Image();
-playerSprite.src = "/src/images/Player.png"
-
-function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
-  ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
-}
-
-function movePlayer(){
-  if (keys[39] && player.x < 800) {
-    player.x += player.speed;
+class Pancakes {
+  constructor() {
+    this.x = columns[Math.floor(Math.random() * columns.length)]
+    this.y = 0
+    this.img = allPancakes[Math.floor(Math.random() * allPancakes.length)]
+    this.width = 200
+    this.height = 200
+    this.speed = 2
   }
-  if (keys[37] && player.x > 0) {
-    player.x -= player.speed;
+  
+  drawPancake(img, sX, sY, sW, sH, dX, dY, dW, dH) {
+    ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
   }
-}
+  makePancake() {
+    const pancakeSprite = new Image();
+    pancakeSprite.src = this.img;
 
-// --------- Pancakes ---------------
-const pancakeSprite = new Image();
-pancakeSprite.src = allPancakes[Math.floor(Math.random() * allPancakes.length)]
-
-function drawPancake(img, sX, sY, sW, sH, dX, dY, dW, dH) {
-  ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
-}
-
-function movePancake(){
-  if (pancake.y < 540) {
-    pancake.y += pancake.speed;
+    this.drawPancake(pancakeSprite, 0, 0, this.width, this.height, this.x, this.y, 
+      this.width, this.height);
   }
-  if (pancake.y == 540) {
-    // gameOver();
-  }
-}
-
-function makePanckaes() {
-  drawPancake(pancakeSprite, 0, 0, pancake.width, pancake.height, pancake.x, pancake.y, 
-    pancake.width, pancake.height);
-}
-
-// --------- Animimation ---------------
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height)
-  drawSprite(playerSprite, 0, 0, player.width, player.height, player.x, player.y, 
-    player.width, player.height);
-
-  if (startingPancakes){
-    for(i=0; i < 7; i++){
-      // makePanckaes();
+  
+  movePancake(){
+    if (this.y < 540) {
+      this.y += this.speed;
     }
-    startingPancakes = false
+    // if (pancake.y == 540) {
+    //   // gameOver();
+    // }
   }
-  makePanckaes();
-  movePlayer();
-  movePancake();
-  requestAnimationFrame(animate);
+  
+
 }
-animate();
 
-
-// window.addEventListener("keydown", function(e){
-//   keys[e.keyCode] = true;
-//   console.log(keys)
-// });
-// window.addEventListener("keyup", function(e){
-//   delete keys[e.keyCode];
-// });
+new Game()
