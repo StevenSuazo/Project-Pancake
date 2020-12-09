@@ -8,14 +8,14 @@ ___
 * Board (Day 1)
   - User will be able to see a background with a playable character and background animation
 
-* Game Logic (Day 2 & 3)
+* Animation (Day 2)
+  - User will be able to see pancakes fall, and player move side to side. 
+
+* Game Logic (Day 3 & 4)
   - User will be able to tap on key to move player in order to catch falling pancake.
 
-* HighScore (Day 4)
+* HighScore (Day 5)
   - User will be able to keep highscore in order to record their progress.
-
-* Animation (Day 5)
-  - User will be able to see pancakes fall frame by frame, and player move side to side. 
 
 ___
 
