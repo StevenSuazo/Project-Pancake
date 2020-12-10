@@ -15,26 +15,32 @@ class Game {
   }
 
   add(obj) {
-    if (obj instanceof Pancakes) {
+    if (obj instanceof Pancakes && this.pancakesOnBoard.includes(obj.img) == false) {
       this.pancakesOnBoard.push(obj);
     }
   }
   
   addPancakes() {
-    for (i = 0; i < 7; i++) {
-      this.add(new Pancakes)
+    for (let i = 0; i < 7; i++) {
+      this.add(new Pancakes(columns[i]))
     }
   }
 
-  animate() {
+  animate(pancake) {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     drawSprite(playerSprite, 0, 0, player.width, player.height, player.x, player.y,
       player.width, player.height);
 
     this.pancakesOnBoard.forEach((pancake) => {
+      // debugger
       pancake.makePancake();
       pancake.movePancake();
     })
+
+    // for (let i = 0; i < this.pancakesOnBoard.length; i++) {
+    //   setTimeout(this.pancakesOnBoard[i].makePancake, 1000)
+    //   setTimeout(this.pancakesOnBoard[i].movePancake, 1000)
+    // }
     // movePlayer();
     requestAnimationFrame(this.animate);
   }
@@ -102,13 +108,19 @@ let allPancakes = [
 ];
 
 class Pancakes {
-  constructor() {
-    this.x = columns[Math.floor(Math.random() * columns.length)]
+  constructor(x) {
+    // this.x = columns[Math.floor(Math.random() * columns.length)]
+    this.x = x
     this.y = 0
     this.img = allPancakes[Math.floor(Math.random() * allPancakes.length)]
     this.width = 200
     this.height = 200
     this.speed = 2
+    this.drawPancake = this.drawPancake.bind(this)
+    this.movePancake = this.movePancake.bind(this)
+    this.makePancake = this.makePancake.bind(this)
+    // this.make = this.makePancake
+    // this.move = this.movePancake
   }
   
   drawPancake(img, sX, sY, sW, sH, dX, dY, dW, dH) {
@@ -134,4 +146,11 @@ class Pancakes {
 
 }
 
-new Game()
+new Game();
+
+// let newGame = new Game();
+
+// for(let i = 0; i < newGame.pancakesOnBoard.length; i++) {
+//   // debugger
+//   newGame.animate(newGame.pancakesOnBoard[i]);
+// }
