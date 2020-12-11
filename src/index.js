@@ -41,7 +41,7 @@ class Game {
     //   setTimeout(this.pancakesOnBoard[i].makePancake, 1000)
     //   setTimeout(this.pancakesOnBoard[i].movePancake, 1000)
     // }
-    // movePlayer();
+    movePlayer();
     requestAnimationFrame(this.animate);
   }
 
@@ -53,30 +53,55 @@ const player = {
   y: 410,
   width: 170,
   height: 200,
-  frameX: 0,
-  frameY: 0,
   speed: 9,
-  moving: false
-}
+};
+
+const keys = [];
 
 const playerSprite = new Image();
 playerSprite.src = "/src/images/Player.png"
 
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
   ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
-}
+};
 
 function movePlayer() {
-  if (keys[39] && player.x < 800) {
-    player.x += player.speed;
+  if (column1.includes(keys[keys.length - 1])) {
+    player.x = 25;
+  } else if (column2.includes(keys[keys.length - 1])) {
+    player.x = 150;
+  } else if (column3.includes(keys[keys.length - 1])) {
+    player.x = 275;
+  } else if (column4.includes(keys[keys.length - 1])) {
+    player.x = 400;
+  } else if (column5.includes(keys[keys.length - 1])) {
+    player.x = 525;
+  } else if (column6.includes(keys[keys.length - 1])) {
+    player.x = 650;
+  } else if (column7.includes(keys[keys.length - 1])) {
+    player.x = 775;
   }
-  if (keys[37] && player.x > 0) {
-    player.x -= player.speed;
-  }
-}
+};
+
+window.addEventListener("keydown", function(e){
+  // console.log(e.key);
+  keys.push(e.key);
+  // keys[e.keyCode] = true;
+});
+// window.addEventListener("keyup", function(e){
+//   // delete keys[0];
+// });
+
 
 // --------- Pancakes ---------------
 const columns = [125, 250, 375, 500, 625, 750, 875];
+const column1 = ["a", "h", "o", "v"]
+const column2 = ["b", "i", "p", "w"]
+const column3 = ["c", "j", "q", "x"]
+const column4 = ["d", "k", "r", "y"]
+const column5 = ["e", "l", "s", "z"]
+const column6 = ["f", "m", "t"]
+const column7 = ["g", "n", "u"]
 
 let allPancakes = [
   "/src/images/pancake-A.png",
