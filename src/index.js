@@ -1,49 +1,86 @@
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
-canvas.width = 1000; 
+canvas.width = 1000;
 canvas.height = 600;
+const then = Date.now();
+let now;
 
 class Game {
   constructor() {
     this.pancakesOnBoard = [];
-    this.playerOnBoard = [];
+    this.pancakesOnBoard2 = [];
+    // this.playerOnBoard = [];
     this.animate = this.animate.bind(this);
+    this.animate2 = this.animate2.bind(this);
 
-    this.addPancakes();
+    debugger
+    this.addPancake();
     this.animate();
-
+    this.animate2();
   }
 
-  add(obj) {
-    if (obj instanceof Pancakes && this.pancakesOnBoard.includes(obj.img) == false) {
-      this.pancakesOnBoard.push(obj);
-    }
-  }
+  // add(obj) {
+  //   debugger
+  //   if (obj instanceof Pancake) {
+  //     this.pancakesOnBoard.push(obj);
+  //   }
+  // }
+
+  addPancake() {
+    debugger
   
-  addPancakes() {
-    for (let i = 0; i < 7; i++) {
-      this.add(new Pancakes(columns[i]))
+    if (new Pancake instanceof Pancake) {
+      this.pancakesOnBoard.push(new Pancake);
+      this.pancakesOnBoard2.push(new Pancake);
+      ;
+      
     }
   }
 
-  animate(pancake) {
+  animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     drawSprite(playerSprite, 0, 0, player.width, player.height, player.x, player.y,
       player.width, player.height);
-
+    debugger
     this.pancakesOnBoard.forEach((pancake) => {
-      // debugger
-      pancake.makePancake();
-      pancake.movePancake();
+      now = Date.now();
+      let diff = now - then;
+
+      if (diff > 1) {
+        pancake.movePancake();
+        pancake.makePancake();
+      }
     })
 
-    // for (let i = 0; i < this.pancakesOnBoard.length; i++) {
-    //   setTimeout(this.pancakesOnBoard[i].makePancake, 1000)
-    //   setTimeout(this.pancakesOnBoard[i].movePancake, 1000)
-    // }
+    //  debugger
+    //   for (let i = 0; i < this.pancakesOnBoard.length; i++) {
+    //     setTimeout(this.pancakesOnBoard[i].makePancake(), 1000)
+    //     setTimeout(this.pancakesOnBoard[i].movePancake(), 1000)
+    //   }
     movePlayer();
     requestAnimationFrame(this.animate);
   }
+
+  animate2() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    drawSprite(playerSprite, 0, 0, player.width, player.height, player.x, player.y,
+      player.width, player.height);
+    debugger
+    this.pancakesOnBoard2.forEach((pancake) => {
+      now = Date.now();
+      let diff = now - then;
+
+      if (diff > 5000) {
+        pancake.movePancake();
+        pancake.makePancake();
+      }
+    })
+
+    movePlayer();
+    requestAnimationFrame(this.animate2);
+    // animate()
+  }
+
 
 }
 
@@ -83,7 +120,7 @@ function movePlayer() {
   }
 };
 
-window.addEventListener("keydown", function(e){
+window.addEventListener("keydown", function (e) {
   // console.log(e.key);
   keys.push(e.key);
   // keys[e.keyCode] = true;
@@ -144,7 +181,7 @@ let allPancakes7 = [
   "/src/images/pancake-U.png"
 ];
 
-class Pancakes {
+class Pancake {
   constructor(x) {
     // this.x = columns[Math.floor(Math.random() * columns.length)]
     this.x = x
@@ -158,18 +195,20 @@ class Pancakes {
     this.img7 = allPancakes7[Math.floor(Math.random() * allPancakes7.length)]
     this.width = 200
     this.height = 200
-    this.speed = 2
+    this.speed = 1
     this.drawPancake = this.drawPancake.bind(this)
-    this.movePancake = this.movePancake.bind(this)
-    this.makePancake = this.makePancake.bind(this)
+    // this.movePancake = this.movePancake.bind(this)
+    // this.makePancake = this.makePancake.bind(this)
     // this.make = this.makePancake
     // this.move = this.movePancake
+    this.makePancake()
   }
-  
+
   drawPancake(img, sX, sY, sW, sH, dX, dY, dW, dH) {
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
   }
   makePancake() {
+    debugger
     const pancakeSprite1 = new Image();
     pancakeSprite1.src = this.img1;
     const pancakeSprite2 = new Image();
@@ -185,31 +224,37 @@ class Pancakes {
     const pancakeSprite7 = new Image();
     pancakeSprite7.src = this.img7;
 
-    this.drawPancake(pancakeSprite1, 0, 0, this.width, this.height, 125, this.y, 
-      this.width, this.height);
-    this.drawPancake(pancakeSprite2, 0, 0, this.width, this.height, 250, this.y, 
-      this.width, this.height);
-    this.drawPancake(pancakeSprite3, 0, 0, this.width, this.height, 375, this.y, 
-      this.width, this.height);
-    this.drawPancake(pancakeSprite4, 0, 0, this.width, this.height, 500, this.y, 
-      this.width, this.height);
-    this.drawPancake(pancakeSprite5, 0, 0, this.width, this.height, 625, this.y, 
-      this.width, this.height);
-    this.drawPancake(pancakeSprite6, 0, 0, this.width, this.height, 750, this.y, 
-      this.width, this.height);
-    this.drawPancake(pancakeSprite7, 0, 0, this.width, this.height, 875, this.y, 
-      this.width, this.height);
+
+    // const pickRand = Math.floor(Math.random() * Math.floor(500));
+
+    const allDraws = [
+      this.drawPancake(pancakeSprite1, 0, 0, this.width, this.height, 125, this.y -50,
+        this.width, this.height),
+      this.drawPancake(pancakeSprite2, 0, 0, this.width, this.height, 250, this.y -350,
+        this.width, this.height),
+      this.drawPancake(pancakeSprite3, 0, 0, this.width, this.height, 375, this.y - 200,
+        this.width, this.height),
+      this.drawPancake(pancakeSprite4, 0, 0, this.width, this.height, 500, this.y - 400,
+        this.width, this.height),
+      this.drawPancake(pancakeSprite5, 0, 0, this.width, this.height, 625, this.y - 300,
+        this.width, this.height),
+      this.drawPancake(pancakeSprite6, 0, 0, this.width, this.height, 750, this.y - 600,
+        this.width, this.height),
+      this.drawPancake(pancakeSprite7, 0, 0, this.width, this.height, 875, this.y - 500,
+        this.width, this.height),
+    ];
+
+    return allDraws[Math.floor(Math.random() * allDraws.length)]
   }
-  
-  movePancake(){
-    if (this.y < 540) {
+
+  movePancake() {
       this.y += this.speed;
-    }
-    // if (pancake.y == 540) {
-    //   // gameOver();
+
+    // if (this.y == 595) {
+    //   alert("GAMEOVER!");
     // }
   }
-  
+
 
 }
 
