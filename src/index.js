@@ -47,6 +47,12 @@ class Game {
         pancake.makePancake();
       }
     })
+
+    this.pancakesOnBoard.forEach((pancake) => {
+      if (pancake.y + pancake.height == player.y + 150) {
+        console.log("collison");
+      }
+    })
     movePlayer();
     requestAnimationFrame(this.animate);
   }
@@ -55,6 +61,16 @@ class Game {
 }
 
 // --------- Player ---------------
+const keys = [];
+
+window.addEventListener("keydown", function(e) {
+  keys[e.keyCode] = true;
+});
+
+window.addEventListener("keyup", function(e) {
+  delete keys[e.keyCode];
+});
+
 const player = {
   x: 200,
   y: 350,
@@ -62,8 +78,6 @@ const player = {
   height: 300,
   speed: 6,
 };
-
-const keys = [];
 
 const playerSprite = new Image();
 playerSprite.src = "/src/images/Player2.png"
@@ -73,7 +87,7 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 };
 
 function movePlayer() {
-  if(keys[37] && player.x > 0) {
+  if(keys[37] && player.x > -30) {
     player.x -= player.speed;
   }
   if(keys[39] && player.x < 830) {
@@ -81,13 +95,6 @@ function movePlayer() {
   }
 };
 
-window.addEventListener("keydown", function(e) {
-  keys[e.keyCode] = true;
-});
-
-window.addEventListener("keyup", function(e) {
-  delete keys[e.keyCode];
-});
 
 
 // --------- Pancakes ---------------
