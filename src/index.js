@@ -215,7 +215,7 @@ class Pancake {
 
   makePancake() {
     const pancakeSprite1 = new Image();
-    pancakeSprite1.src = "/src/images/pancake.png";
+    pancakeSprite1.src = "./src/images/pancake.png";
 
     this.drawPancake(pancakeSprite1, 0, 0, this.width, this.height, this.x, this.y,
       this.width, this.height)
@@ -247,7 +247,7 @@ class BurntPancake {
 
   makeBurntPancake() {
     const pancakeSprite2 = new Image();
-    pancakeSprite2.src = "/src/images/burnt.png";
+    pancakeSprite2.src = "./src/images/burnt.png";
 
     this.drawPancake(pancakeSprite2, 0, 0, this.width, this.height, this.x, this.y,
       this.width, this.height)
