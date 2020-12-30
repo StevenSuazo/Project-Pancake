@@ -181,7 +181,7 @@ class Player {
 
   makePlayer() {
     const playerSprite = new Image();
-    playerSprite.src = "/src/images/Player2.png";
+    playerSprite.src = "./src/images/Player2.png";
     
     this.drawSprite(playerSprite, 0, 0, this.width, this.height, this.x, this.y,
       this.width, this.height)
