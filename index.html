@@ -6,8 +6,61 @@
 </head>
 
 <body>
-  <canvas id="canvas" style="background: url('./src/images/background.jpg')"></canvas>
-  <script src="./dist/main.js"></script>
+    <div class="screen">
+      <div class="">
+        <div class="instructions">
+          <div class="left-arrow-instructions">
+            Press <img src="https://res.cloudinary.com/suaz/image/upload/v1612556410/left_arrow_ijvb3z.png"
+                       alt="left-arrow"
+                       class="arrow-image">
+            to move left
+          </div>
+          <div class="right-arrow-instructions">
+            Press <img src="https://res.cloudinary.com/suaz/image/upload/v1612556410/right_arrow_wdgdus.png"
+                       alt="right-arrow"
+                       class="arrow-image">
+            to move right
+          </div>
+          <div class="game-play-instructions">
+            <div class="pancake-instructions">
+              Catch the falling
+              <img src="https://res.cloudinary.com/suaz/image/upload/c_scale,w_40/v1612555678/pancake_czw52y.png"
+                   alt="pancake"
+                   class="pancake-image">,
+            </div>
+            <div class="burnt-pancake-instructions">
+              but avoid the
+              <img src="https://res.cloudinary.com/suaz/image/upload/c_scale,w_40/v1612555678/burnt_obqdws.png"
+                   alt="burnt-pancake"
+                   class="burnt-pancake-image">!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="game">
+        <h1 class="header">Project Pancake</h1>
+          <canvas id="canvas" style="background: url('./src/images/background.jpg')"></canvas>
+          <script src="./dist/main.js"></script>
+      </div>
+      <div class="nav-links">
+        <a href="https://www.linkedin.com/in/steven-suazo-b71394143/"
+           target="_blank"
+           class="linkedin-link">
+           <img src="https://res.cloudinary.com/suaz/image/upload/v1612556507/linkedin_m4uijy.png"
+                alt="linkedin"
+                class="linkedin-image">
+           <div class="linkedin-text">LinkedIn</div>
+        </a>
+        <a href="https://github.com/StevenSuazo/Project-Pancake"
+           target="_blank"
+           class="github-link">
+           <img src="https://res.cloudinary.com/suaz/image/upload/v1612556507/github_j38bzl.png"
+                alt="github"
+                class="github-image">
+           <div class="github-text">GitHub</div>
+        </a>
+      </div>
+    </div>
 </body>
 
 </html>

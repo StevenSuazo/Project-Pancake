@@ -1,3 +1,5 @@
+import "../index.css"
+
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 canvas.width = 1000;
@@ -21,7 +23,7 @@ class Game {
 
   drawScore() {
     ctx.font = 'bold 30px Sans-Serif';
-    ctx.fillStyle = "#66A1E7"
+    ctx.fillStyle = "#1f599b"
     ctx.strokeStyle = "#C5E0F5";
     ctx.fillText("SCORE: " + this.score, 10, 30);
     ctx.strokeText("SCORE: " + this.score, 10, 30);
@@ -29,7 +31,7 @@ class Game {
 
   drawLives() {
     ctx.font = 'bold 30px Sans-Serif';
-    ctx.fillStyle = "#66A1E7"
+    ctx.fillStyle = "#1f599b"
     ctx.strokeStyle = "#C5E0F5";
     ctx.fillText("LIVES: " + this.lives, 850, 30);
     ctx.strokeText("LIVES: " + this.lives, 850, 30);
