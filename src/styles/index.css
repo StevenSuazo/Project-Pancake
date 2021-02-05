@@ -36,7 +36,7 @@ main, a, img, div {
 .left-arrow-instructions,
 .right-arrow-instructions,
 .game-play-instructions {
-  padding: 4px;
+  padding: 2px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
