@@ -33,6 +33,11 @@ main, a, img, div {
   background-color: "blue"
 }
 
+.instructions h3 {
+  display: flex;
+  justify-content: center;
+}
+
 .left-arrow-instructions,
 .right-arrow-instructions,
 .game-play-instructions {
