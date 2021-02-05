@@ -27,16 +27,16 @@ main, a, img, div {
 .instructions {
   width: 200px;
   border: 2px solid rgb(92, 151, 224);
-  padding: 20px;
+  padding: 0px;
   margin-right: 27px;
   margin-top: 45px;
-  /* background-color: "blue": */
+  background-color: "blue"
 }
 
 .left-arrow-instructions,
 .right-arrow-instructions,
 .game-play-instructions {
-  padding: 5px;
+  padding: 4px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -74,15 +74,11 @@ main, a, img, div {
   margin-bottom: 10px;
 }
 
-/* canvas {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-} */
-
 .nav-links {
   width: 200px;
   margin-top: 45px;
+  display: flex;
+  align-items: flex-end
 }
 
 .linkedin-link,
@@ -97,9 +93,3 @@ main, a, img, div {
   margin-right: 5px;
   float: left;
 }
-
-/* .clearfix:after {
-  content: "";
-  display: block;
-  clear: both;
-} */
