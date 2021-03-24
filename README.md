@@ -1,6 +1,7 @@
 # Project Pancakes
 
 [Live Link](https://stevensuazo.github.io/Project-Pancake/)
+
 Project Pancakes is an online game computer game. You play as a sous chef trying to keep up with the high pace pancake throwing of your head breakfast chef. As pancakes get thrown at you, simply press and hold the arrow keys to move the player and catch the pancake on the pan. But be careful not to catch the burnt pancakes, as the restaurant gets busier, the pancakes will get faster. How many hungry customers can you feed? 
 
 ![Gameplay Image](src/images/Gameplay.png)
