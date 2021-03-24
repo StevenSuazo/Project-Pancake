@@ -1,7 +1,9 @@
 # Project Pancakes
 
-Project Pancakes is an online game that will not only help you improve your typing skill, but keep you entertained for hours. You play as a sous chef trying to keep up with the high pace pancake throwing of your head breakfast chef. As pancakes get thrown at you front the head chef, simply tap on the corresponding key on your keyboard to catch the pancake on the plate. But be careful, as the restaurant gets busier, the pancakes will get faster. How many hungry customers can you feed? 
+[Live Link](https://stevensuazo.github.io/Project-Pancake/)
+Project Pancakes is an online game computer game. You play as a sous chef trying to keep up with the high pace pancake throwing of your head breakfast chef. As pancakes get thrown at you, simply press and hold the arrow keys to move the player and catch the pancake on the pan. But be careful not to catch the burnt pancakes, as the restaurant gets busier, the pancakes will get faster. How many hungry customers can you feed? 
 
+![Gameplay Image](src/images/Gameplay.png)
 ___
 
 ## MVPs
