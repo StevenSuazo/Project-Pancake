@@ -84,15 +84,15 @@ class Game {
         pancake.movePancake();
         pancake.makePancake();
       } else if (this.score >= 6 && this.score <= 10) {
-        pancake.speed = 1.75;
-        pancake.movePancake();
-        pancake.makePancake();
-      } else if (this.score >= 11 && this.score <= 15){
         pancake.speed = 2.5;
         pancake.movePancake();
         pancake.makePancake();
-      } else {
+      } else if (this.score >= 11 && this.score <= 15){
         pancake.speed = 3;
+        pancake.movePancake();
+        pancake.makePancake();
+      } else {
+        pancake.speed = 3.5;
         pancake.movePancake();
         pancake.makePancake();
       }
@@ -206,7 +206,7 @@ class Pancake {
     this.y = - 50
     this.width = 60
     this.height = 60
-    this.speed = 1
+    this.speed = 1.75
   }
 
   drawPancake(img, sX, sY, sW, sH, dX, dY, dW, dH) {
@@ -238,7 +238,7 @@ class BurntPancake {
     this.y = - 50
     this.width = 60
     this.height = 60
-    this.speed = 1
+    this.speed = 1.75
   }
 
   drawPancake(img, sX, sY, sW, sH, dX, dY, dW, dH) {
