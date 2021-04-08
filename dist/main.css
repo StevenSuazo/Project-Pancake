@@ -15,7 +15,6 @@ main, a, img, div {
   text-align: inherit;
   text-decoration: inherit;
   background: transparent;
-  background-color: rgb(242, 235, 235);
   font-family: 'Raleway',serif;
 }
 
@@ -26,34 +25,23 @@ main, a, img, div {
 }
 
 .instructions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 500px;
+  width: 200px;
   border: 2px solid rgb(92, 151, 224);
   padding: 0px;
   margin-right: 27px;
   margin-top: 45px;
-  margin-bottom: 45px;
   background-color: "blue"
 }
 
-.instructions-container{
+.instructions h3 {
   display: flex;
   justify-content: center;
-}
-
-.instructions-header{
-  display: flex;
-  justify-content: center;
-  font-size: 30px;
-  margin-bottom: 0px;
 }
 
 .left-arrow-instructions,
 .right-arrow-instructions,
 .game-play-instructions {
-  padding: 6px;
+  padding: 2px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -92,22 +80,24 @@ main, a, img, div {
 }
 
 .nav-links {
-  display: flex;
-  flex-direction: column;
   width: 200px;
   margin-top: 45px;
+  display: flex;
+  align-items: flex-end
 }
 
 .linkedin-link,
 .github-link {
   padding: 7px;
-  padding-left: 0px;
   display: flex;
-  justify-content: flex-start;
 }
 
 .linkedin-image,
 .github-image {
+  margin-left: 20px;
   margin-right: 5px;
   float: left;
 }
+
+
+/*# sourceMappingURL=main.css.map*/
